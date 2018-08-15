@@ -471,6 +471,7 @@
                     <connections>
                         <outlet property="emailTxt" destination="HS3-Z1-KUx" id="byZ-88-KBT"/>
                         <outlet property="passwordTxt" destination="JIr-8v-Zzn" id="d9I-cx-txH"/>
+                        <outlet property="userImg" destination="m4J-Me-qwy" id="1lR-NI-qLX"/>
                         <outlet property="userNameTxt" destination="lQ5-wn-Lo3" id="3AB-PI-0fn"/>
                         <segue destination="Ab2-2w-IMh" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="imO-hL-RpH"/>
                     </connections>
