@@ -55,6 +55,7 @@ class CreateAccountVC: UIViewController {
             self.userImg.backgroundColor = self.bgColor
         }
         avatarColor = "[\(r),\(g),\(b),1]"
+        
     }
     
     @IBAction func createActionPressed(_ sender: Any) {
