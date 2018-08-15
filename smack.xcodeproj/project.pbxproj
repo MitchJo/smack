@@ -11,6 +11,7 @@
 		F8AD07F321242D62001919D4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AD07F121242D62001919D4 /* SWRevealViewController.m */; };
 		F8AD07F82124301F001919D4 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AD07F72124301F001919D4 /* ChatVC.swift */; };
 		F8AD07FA2124302E001919D4 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AD07F92124302E001919D4 /* ChannelVC.swift */; };
+		F8AD07FC2124360D001919D4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AD07FB2124360D001919D4 /* GradientView.swift */; };
 		F8B62F882124169F00265419 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B62F872124169F00265419 /* AppDelegate.swift */; };
 		F8B62F8D2124169F00265419 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B62F8B2124169F00265419 /* Main.storyboard */; };
 		F8B62F8F212416A200265419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B62F8E212416A200265419 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		F8AD07F221242D62001919D4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F8AD07F72124301F001919D4 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		F8AD07F92124302E001919D4 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
+		F8AD07FB2124360D001919D4 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F8B62F842124169F00265419 /* smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B62F872124169F00265419 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8B62F8C2124169F00265419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		F8AD07F621242FFB001919D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F8AD07FB2124360D001919D4 /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				F8AD07FA2124302E001919D4 /* ChannelVC.swift in Sources */,
 				F8AD07F82124301F001919D4 /* ChatVC.swift in Sources */,
+				F8AD07FC2124360D001919D4 /* GradientView.swift in Sources */,
 				F8B62F882124169F00265419 /* AppDelegate.swift in Sources */,
 				F8AD07F321242D62001919D4 /* SWRevealViewController.m in Sources */,
 			);
