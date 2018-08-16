@@ -113,6 +113,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8N-fE-cnl">
                                 <rect key="frame" x="281" y="88.5" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="addChannelPressed:" destination="wvz-gS-4Dg" eventType="touchUpInside" id="2so-db-wPd"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iCS-ae-M28" customClass="CircleImage" customModule="smack" customModuleProvider="target">
                                 <rect key="frame" x="16" y="570" width="77" height="77"/>
@@ -125,7 +128,7 @@
                                 <rect key="frame" x="0.0" y="130.5" width="375" height="419.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ho1-ms-1qu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="channelCell" id="Ho1-ms-1qu" customClass="ChannelCell" customModule="smack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ho1-ms-1qu" id="JNI-9e-U1H">
@@ -145,6 +148,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="channelName" destination="o1y-qE-A3N" id="9zS-ab-AmX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -180,6 +186,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="8X9-Ro-trB" id="8tQ-Cg-4nI"/>
+                        <outlet property="tableView" destination="cGs-Pi-kjB" id="3fA-7g-hur"/>
                         <outlet property="userImg" destination="iCS-ae-M28" id="4tc-OC-HA6"/>
                         <segue destination="Ja6-Tf-PKI" kind="show" identifier="toLogin" id="FlU-u7-4jI"/>
                     </connections>
@@ -237,6 +244,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginBtnPressed:" destination="Ja6-Tf-PKI" eventType="touchUpInside" id="hKw-0p-1wh"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="uej-zd-TT0">
                                 <rect key="frame" x="62.5" y="160" width="250" height="94"/>
@@ -290,6 +300,10 @@
                                     <action selector="createAccountPressed:" destination="Ja6-Tf-PKI" eventType="touchUpInside" id="0gH-BZ-h0f"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nAh-rT-8JE">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.2901960784" green="0.30196078430000001" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -298,15 +312,20 @@
                             <constraint firstItem="uej-zd-TT0" firstAttribute="top" secondItem="ctO-Yb-Q7f" secondAttribute="bottom" constant="40" id="DDR-fg-che"/>
                             <constraint firstItem="uej-zd-TT0" firstAttribute="centerX" secondItem="5us-tC-huB" secondAttribute="centerX" id="Ipn-Hx-GzZ"/>
                             <constraint firstItem="ctO-Yb-Q7f" firstAttribute="top" secondItem="hc2-0S-YeQ" secondAttribute="top" constant="60" id="Mw3-fw-6Wl"/>
+                            <constraint firstItem="nAh-rT-8JE" firstAttribute="centerX" secondItem="5us-tC-huB" secondAttribute="centerX" id="PMs-xm-owV"/>
                             <constraint firstItem="ctO-Yb-Q7f" firstAttribute="centerX" secondItem="5us-tC-huB" secondAttribute="centerX" id="gwZ-xa-Lob"/>
                             <constraint firstItem="Yr4-C0-M0D" firstAttribute="top" secondItem="1Y0-44-hGD" secondAttribute="bottom" constant="10" id="mdw-xP-edg"/>
                             <constraint firstItem="1Y0-44-hGD" firstAttribute="centerX" secondItem="5us-tC-huB" secondAttribute="centerX" id="n4y-9T-aQZ"/>
                             <constraint firstItem="Yr4-C0-M0D" firstAttribute="centerX" secondItem="5us-tC-huB" secondAttribute="centerX" id="sgt-hG-58k"/>
+                            <constraint firstItem="nAh-rT-8JE" firstAttribute="centerY" secondItem="5us-tC-huB" secondAttribute="centerY" constant="-100" id="shY-nV-1HQ"/>
                             <constraint firstItem="hc2-0S-YeQ" firstAttribute="trailing" secondItem="ejF-um-3Hi" secondAttribute="trailing" constant="16" id="yfA-8e-Ohs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hc2-0S-YeQ"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTxt" destination="DQy-pB-Ypq" id="UkG-ij-Ryt"/>
+                        <outlet property="spinner" destination="nAh-rT-8JE" id="TxN-uw-CTc"/>
+                        <outlet property="userNameTxt" destination="LZ3-RQ-2gi" id="06W-hx-p2M"/>
                         <segue destination="JmR-kL-KPX" kind="show" identifier="toCreateAccount" id="T4H-TG-myQ"/>
                     </connections>
                 </viewController>

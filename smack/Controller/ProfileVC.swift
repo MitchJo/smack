@@ -10,26 +10,37 @@ import UIKit
 
 class ProfileVC: UIViewController {
 
+    @IBOutlet weak var userImg: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userEmail: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func closeModalPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        UserDataService.instance.loggeoutUser()
+        NotificationCenter.default.post(name: NOTIFY_USER_DATA_DID_CHANGE, object: nil)
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    func setupView(){
+        userImg.image = UIImage(named: UserDataService.instance.avatarName)
+        userImg.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+        userName.text = UserDataService.instance.name
+        userEmail.text = UserDataService.instance.email
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(_ recognizer: UITapGestureRecognizer){
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
