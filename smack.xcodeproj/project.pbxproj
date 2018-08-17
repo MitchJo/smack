@@ -13,6 +13,7 @@
 		F8128FB921260C3D00CC91AD /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8128FB821260C3D00CC91AD /* ChannelCell.swift */; };
 		F8128FBC212612BB00CC91AD /* AddChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8128FBA212612BB00CC91AD /* AddChannelVC.swift */; };
 		F8128FBD212612BB00CC91AD /* AddChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8128FBB212612BB00CC91AD /* AddChannelVC.xib */; };
+		F8661DE62126E9ED006B7D84 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8661DE52126E9ED006B7D84 /* Message.swift */; };
 		F8AD07F321242D62001919D4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8AD07F121242D62001919D4 /* SWRevealViewController.m */; };
 		F8AD07F82124301F001919D4 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AD07F72124301F001919D4 /* ChatVC.swift */; };
 		F8AD07FA2124302E001919D4 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AD07F92124302E001919D4 /* ChannelVC.swift */; };
@@ -43,6 +44,7 @@
 		F8128FB821260C3D00CC91AD /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		F8128FBA212612BB00CC91AD /* AddChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelVC.swift; sourceTree = "<group>"; };
 		F8128FBB212612BB00CC91AD /* AddChannelVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelVC.xib; sourceTree = "<group>"; };
+		F8661DE52126E9ED006B7D84 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		F8AD07F021242D60001919D4 /* smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "smack-Bridging-Header.h"; sourceTree = "<group>"; };
 		F8AD07F121242D62001919D4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F8AD07F221242D62001919D4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				F8128FB6212603B500CC91AD /* Channel.swift */,
+				F8661DE52126E9ED006B7D84 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				F8AD07FA2124302E001919D4 /* ChannelVC.swift in Sources */,
 				F8AD080C21249BAD001919D4 /* AvatarPickerVC.swift in Sources */,
 				F8AD080821248B24001919D4 /* RoundedButton.swift in Sources */,
+				F8661DE62126E9ED006B7D84 /* Message.swift in Sources */,
 				F8128FB7212603B500CC91AD /* Channel.swift in Sources */,
 				F8AD08102124AB00001919D4 /* CircleImage.swift in Sources */,
 				F80947C7212602A200290CBA /* MessageService.swift in Sources */,
