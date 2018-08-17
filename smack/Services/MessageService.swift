@@ -24,7 +24,7 @@ class MessageService{
                 } catch let error {
                     debugPrint(error as Any)
                 }
-                print(self.channels,"Channels")
+                
 //                if let json = try? JSON(data: data).array {
 //                    for item in json! {
 //                        let name = item["name"].stringValue
@@ -37,6 +37,7 @@ class MessageService{
 //                        completion(true)
 //                    }
 //                }
+                
             }else{
                 completion(false)
                 debugPrint(response.result.error as Any)

@@ -32,6 +32,7 @@
 		F8B62F8D2124169F00265419 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B62F8B2124169F00265419 /* Main.storyboard */; };
 		F8B62F8F212416A200265419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B62F8E212416A200265419 /* Assets.xcassets */; };
 		F8B62F92212416A200265419 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B62F90212416A200265419 /* LaunchScreen.storyboard */; };
+		F8DA12642126C0DD00B4B496 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DA12632126C0DD00B4B496 /* SocketService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		F8B62F8E212416A200265419 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8B62F91212416A200265419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8B62F93212416A200265419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8DA12632126C0DD00B4B496 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		FF6B71B82863C5C10CEB2C91 /* Pods_smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 				F8AD0805212481E2001919D4 /* AuthService.swift */,
 				F8AD0809212492B1001919D4 /* UserDataService.swift */,
 				F80947C6212602A200290CBA /* MessageService.swift */,
+				F8DA12632126C0DD00B4B496 /* SocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8DA12642126C0DD00B4B496 /* SocketService.swift in Sources */,
 				F8AD08182124C8B9001919D4 /* ProfileVC.swift in Sources */,
 				F8128FB921260C3D00CC91AD /* ChannelCell.swift in Sources */,
 				F8AD07FA2124302E001919D4 /* ChannelVC.swift in Sources */,

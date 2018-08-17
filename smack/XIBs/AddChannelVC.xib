@@ -85,6 +85,9 @@
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onCreateChannelPressed:" destination="-1" eventType="touchUpInside" id="JOm-Gt-v3b"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywf-Yq-yyN">
                             <rect key="frame" x="291" y="16" width="28" height="28"/>
