@@ -145,13 +145,18 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func initializeSocket(){
-        SocketService.instance.getChatMessage { (success) in
-            self.tableView.reloadData()
-            if MessageService.instance.messages.count > 0 {
-                let indexP = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
-                self.tableView.scrollToRow(at: indexP, at: .bottom, animated: false)
+        
+        SocketService.instance.getChatMessage { (newMessage) in
+            if newMessage.channelId == MessageService.instance.selectedChannel?._id && AuthService.instance.isLoggedIn {
+                MessageService.instance.messages.append(newMessage)
+                self.tableView.reloadData()
+                if MessageService.instance.messages.count > 0 {
+                    let indexP = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: indexP, at: .bottom, animated: false)
+                }
             }
         }
+
         SocketService.instance.getTypingUsers { (typingUsers) in
             guard let channelId = MessageService.instance.selectedChannel?._id else {return}
             var names = ""
