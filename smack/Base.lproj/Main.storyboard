@@ -82,6 +82,9 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="messageChange:" destination="09a-7Y-k7G" eventType="editingChanged" id="JgD-ep-10N"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9Z-XT-9sF">
                                 <rect key="frame" x="337" y="632" width="30" height="30"/>
@@ -149,6 +152,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZS-D2-3BL">
+                                <rect key="frame" x="10" y="619" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="9"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -157,10 +166,12 @@
                             <constraint firstItem="e9Z-XT-9sF" firstAttribute="centerY" secondItem="Fdx-gQ-ToX" secondAttribute="centerY" id="JOs-5E-JiW"/>
                             <constraint firstItem="LA7-Ae-835" firstAttribute="trailing" secondItem="Fdx-gQ-ToX" secondAttribute="trailing" id="KCF-9G-8p3"/>
                             <constraint firstItem="LA7-Ae-835" firstAttribute="bottom" secondItem="Fdx-gQ-ToX" secondAttribute="bottom" id="NPU-ab-Zjd"/>
+                            <constraint firstItem="Fdx-gQ-ToX" firstAttribute="top" secondItem="eZS-D2-3BL" secondAttribute="bottom" constant="8" id="Qbx-si-eiM"/>
                             <constraint firstItem="Fdx-gQ-ToX" firstAttribute="top" secondItem="Fqs-T8-Nuk" secondAttribute="bottom" constant="30" id="QhF-bC-Ejq"/>
                             <constraint firstItem="Fqs-T8-Nuk" firstAttribute="top" secondItem="Ddm-8p-3aU" secondAttribute="bottom" id="VtL-nA-eg5"/>
                             <constraint firstItem="Fqs-T8-Nuk" firstAttribute="leading" secondItem="LA7-Ae-835" secondAttribute="leading" id="aKG-e1-Rax"/>
                             <constraint firstItem="LA7-Ae-835" firstAttribute="trailing" secondItem="e9Z-XT-9sF" secondAttribute="trailing" constant="8" id="eBa-Re-jai"/>
+                            <constraint firstItem="eZS-D2-3BL" firstAttribute="leading" secondItem="LA7-Ae-835" secondAttribute="leading" constant="10" id="gp4-sQ-Gng"/>
                             <constraint firstItem="LA7-Ae-835" firstAttribute="trailing" secondItem="Fqs-T8-Nuk" secondAttribute="trailing" id="h5D-Df-rQU"/>
                             <constraint firstItem="Fdx-gQ-ToX" firstAttribute="leading" secondItem="LA7-Ae-835" secondAttribute="leading" id="jFN-SF-OmA"/>
                             <constraint firstItem="Ddm-8p-3aU" firstAttribute="leading" secondItem="LA7-Ae-835" secondAttribute="leading" id="lx1-XC-QCu"/>
@@ -169,8 +180,10 @@
                     </view>
                     <connections>
                         <outlet property="channelNameLbl" destination="HZ0-iN-VEV" id="Olm-N8-AVA"/>
+                        <outlet property="isTypingLabel" destination="eZS-D2-3BL" id="ELE-CI-U2U"/>
                         <outlet property="menuBtn" destination="Vow-sa-lwC" id="4bM-Ud-NDZ"/>
                         <outlet property="messageTxtBox" destination="Fdx-gQ-ToX" id="dsM-h7-3QY"/>
+                        <outlet property="sendButton" destination="e9Z-XT-9sF" id="JIY-cg-cfN"/>
                         <outlet property="tableView" destination="Fqs-T8-Nuk" id="XpJ-9u-kaW"/>
                     </connections>
                 </viewController>

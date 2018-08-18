@@ -14,8 +14,11 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var channelNameLbl: UILabel!
     @IBOutlet weak var messageTxtBox: UITextField!
     
+    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var isTypingLabel: UILabel!
     
+    var isTyping = false
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -23,6 +26,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.estimatedRowHeight = 80;
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        sendButton.isHidden = true
         view.bindToKeyboard()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.closeTap))
@@ -35,6 +39,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange), name: NOTIFY_USER_DATA_DID_CHANGE, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIFY_CHANNEL_SELECTED, object: nil)
+    
         
         if AuthService.instance.isLoggedIn {
             AuthService.instance.findUserByEmail { (success) in
@@ -52,6 +57,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             onLoginGetMessages()
         }else{
             channelNameLbl.text = "Please login"
+            tableView.reloadData()
         }
     }
     
@@ -59,6 +65,25 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         updateWithChannel()
     }
     
+    @IBAction func messageChange(_ sender: Any) {
+       
+        guard let channelId = MessageService.instance.selectedChannel?._id else {return}
+        
+                if messageTxtBox.text == "" {
+                    isTyping = false
+                    sendButton.isHidden = true
+                    SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
+                }else{
+                    if isTyping == false {
+                        sendButton.isHidden = false
+                        SocketService.instance.socket.emit("startType", UserDataService.instance.name, channelId)
+                    }
+                    isTyping = true
+                }
+       
+    }
+    
+  
     func onLoginGetMessages(){
         MessageService.instance.findAllChannel { (success) in
             if success {
@@ -92,6 +117,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func getMessages(){
+        initializeSocket()
         guard let channelId = MessageService.instance.selectedChannel?._id else {return}
         MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
             if success {
@@ -117,5 +143,41 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MessageService.instance.messages.count
     }
- 
+    
+    func initializeSocket(){
+        SocketService.instance.getChatMessage { (success) in
+            self.tableView.reloadData()
+            if MessageService.instance.messages.count > 0 {
+                let indexP = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                self.tableView.scrollToRow(at: indexP, at: .bottom, animated: false)
+            }
+        }
+        SocketService.instance.getTypingUsers { (typingUsers) in
+            guard let channelId = MessageService.instance.selectedChannel?._id else {return}
+            var names = ""
+            var noOfTypers = 0
+            for (typingUsers,channel) in typingUsers {
+                if typingUsers != UserDataService.instance.name && channel == channelId {
+                    if names == "" {
+                        names = typingUsers
+                    }else {
+                        names = "\(names), \(typingUsers)"
+                    }
+                    noOfTypers += 1
+                }
+            }
+            
+            if noOfTypers > 0 && AuthService.instance.isLoggedIn == true {
+                var verb = "is"
+                if noOfTypers > 1 {
+                    verb = "are"
+                }
+                self.isTypingLabel.text = "\(names) \(verb) typing..."
+            }else{
+                self.isTypingLabel.text = ""
+            }
+            
+        }
+    }
+    
 }

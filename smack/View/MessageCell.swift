@@ -26,7 +26,7 @@ class MessageCell: UITableViewCell {
         messageBody.text = message.message
         userName.text = message.userName
         userImg.image = UIImage(named: message.userAvatar)
-        userImg.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+        userImg.backgroundColor = UserDataService.instance.returnUIColor(components: message.userAvatarColor)
     }
 
 }
